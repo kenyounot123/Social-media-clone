@@ -22,15 +22,17 @@ default: &default
 development:
   <<: *default
   database: fb_clone_development
+  username: klu519
+  password: <%= ENV["FB_CLONE_DATABASE_PASSWORD"] %>
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-  username: klu519
+  #username: fb_clone
 
   # The password associated with the PostgreSQL role (username).
-  password: <%= ENV[DATABASE_PASSWORD]%>
+  #password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -80,5 +82,5 @@ test:
 production:
   <<: *default
   database: fb_clone_production
-  username: klu19
-  password: <%= ENV["DATABASE_PASSWORD"] %>
+  username: klu519
+  password: <%= ENV["FB_CLONE_DATABASE_PASSWORD"] %>
