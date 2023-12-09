@@ -1,2 +1,2 @@
-module PostslHelper
+module PostsHelper
 end
