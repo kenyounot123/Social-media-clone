@@ -1,0 +1,6 @@
+<h1>Welcome <%= current_user.email %></h1>
+<h2>Please input your username (this is the name that other users will see)</h2>
+<%= form_with model: @user do |form| %>
+  <%= form.text_field :name %>
+  <%= form.submit "Create" %>
+<% end %>
