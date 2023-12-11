@@ -2,3 +2,4 @@
 import "@hotwired/turbo-rails"
 import "./controllers/hello_controller.js"
 import * as bootstrap from "bootstrap"
+
