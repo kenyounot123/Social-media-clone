@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new(post_params)
+    @post = Post.new(params[:id])
   end
 
   def show
@@ -13,12 +13,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       flash[:notice] = 'Post successfully created'
       redirect_to @post
     else
-      flash[:alert] = 'Post was not created'
+      flash[:alert] = 'Something went wrong'
       render :new, status: :unprocessable_entity
     end
   end
@@ -26,6 +26,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:title, :body)
+    params.require(:post).permit(:title, :body, :user_id)
   end
 end
