@@ -1,0 +1,7 @@
+<div class='profile-form-container'>
+  <%= form_with model: user do |form| %>
+    <%= form.label :name, "Username: " %>
+    <%= form.text_field :name, placeholder:"Other users will see this name" %>
+    <%= form.submit %>
+  <% end %>
+</div>
