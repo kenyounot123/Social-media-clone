@@ -1,0 +1,14 @@
+<div class='create-post-container'>
+  <%= form_with model: post do |form| %>
+    <div class='post-title-container'>
+      <%= form.label :title, 'Post Title', placeholder: 'What is this post about ?' %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class='post-body-container'>
+      <%= form.label :body, placeholder: 'My amazing post'%>
+      <%= form.text_field :body %>
+    </div>
+    <%= form.submit %>
+  <% end %>
+</div>

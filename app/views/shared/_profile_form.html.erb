@@ -1,7 +1,21 @@
 <div class='profile-form-container'>
   <%= form_with model: user do |form| %>
+
+    <% if user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+          <% user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
     <%= form.label :name, "Username: " %>
     <%= form.text_field :name, placeholder:"Other users will see this name" %>
     <%= form.submit %>
   <% end %>
+  
 </div>

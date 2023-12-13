@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to dashboard_path, notice: "Profile created"
+      redirect_to dashboard_path, notice: "Profile updated"
     else
-      render :edit, notice: "Username invalid"
+      render :edit, notice: "Something went wrong, profile was not updated"
     end
   end
   
