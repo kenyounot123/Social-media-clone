@@ -1,10 +1,17 @@
-<div class="text-center container post-container">
-  <%= post.user.name %> posted 
-  <span class="post-title-container"><%= post.title %></span>
-  <div class="post-body-container">
-    <%= post.body %>
-  </div>
-
-  <% if current_user == post.user %>
-  <% end %>
-</div> 
+<%= turbo_frame_tag post do %>
+  <div class="text-center container post-container">
+    <%= post.user.name %> posted 
+    <span class="post-title-container"><%= post.title %></span>
+    <div class="post-body-container">
+      <%= post.body %>
+    </div>
+    <div class="post-actions">
+      <%= link_to "View Post,", post_path(post) %>
+      <% if current_user == post.user %>
+        <%= button_to "Delete",
+                      post_path(post),
+                      method: :delete %>
+      <% end %>
+    </div>
+  </div> 
+<% end %>

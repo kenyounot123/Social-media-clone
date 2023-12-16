@@ -42,6 +42,16 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    respond_to do |format|
+      format.html { redirect_to dashboard_path, notice: 'Post successfully deleted' }
+      format.turbo_stream { render turbo_stream: turbo_stream.remove("post_#{@post.id}") }
+    end
+  end
+
   private
 
   def post_params
