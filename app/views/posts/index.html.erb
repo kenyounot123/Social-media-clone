@@ -1,5 +1,7 @@
 <h1>Welcome <%= current_user.name %></h1>
 
-<%= turbo_frame_tag "create_post_region" %>
+<%= turbo_frame_tag Post.new %>
 
-<%= turbo_frame_tag "show_post_region" %>
+<%= turbo_frame_tag "posts_region" do %>
+  <%= render @posts %>
+<% end %>
