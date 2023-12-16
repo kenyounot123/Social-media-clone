@@ -1,0 +1,11 @@
+<div class="text-center container post-container">
+  <%= post.user.name %> posted 
+  <span class="post-title-container"><%= post.title %></span>
+  <div class="post-body-container">
+    <%= post.body %>
+  </div>
+
+  <% if current_user == post.user %>
+    <%= form_with %>
+  <% end %>
+</div> 
