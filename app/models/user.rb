@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :name, length: { minimum: 2, maximum: 25}
+  validates :name, length: { minimum: 2, maximum: 25}, on: :edit
 
   has_many :posts
   has_many :comments

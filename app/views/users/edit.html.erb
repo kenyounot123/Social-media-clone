@@ -1,3 +1,5 @@
 <h2>Edit profile</h2>
-
-<%= render partial: 'shared/profile_form', locals: { user: @user } %>
+<% if current_user.name.nil? %>
+  Please create a username for other users to see
+<% end %>
+<%= render partial: 'profile_form', locals: { user: @user } %>
