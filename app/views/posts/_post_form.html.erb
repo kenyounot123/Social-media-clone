@@ -1,5 +1,8 @@
 <div class='text-center create-post-container container'>
-  <%= form_with model: post do |form| %>
+  <%= form_with model: post, 
+                data: { 
+                  controller: "reset-form",
+                  action: 'turbo:submit-end->reset-form#reset' } do |form| %>
     <% if post.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,28 +14,19 @@
       </div>
     <% end %>
 
-    <div data-controller='clear-input'>
-      <div class='create-post-title-container'>
-        <%= form.label :title, 'Post Title'%>
-        <%= form.text_field :title, 
-                            placeholder: 'What is this post about ?',
-                            data: {
-                              controller: 'clear-input',                   
-                              target: 'clear-input.inputField'                        
-                            } %>
-      </div>
-
-      <div class='create-post-body-container'>
-        <%= form.label :body %>
-        <%= form.text_area :body, 
-                            placeholder: 'My amazing post',
-                            data: {
-                              controller: 'clear-input',                   
-                              target: 'clear-input.inputField'                        
-                            } %>
-      </div>
-      
-      <%= form.submit data: { action: 'click->clear-input#clearField'}%>
+    <div class='create-post-title-container'>
+      <%= form.label :title, 'Post Title'%>
+      <%= form.text_field :title, 
+                          placeholder: 'What is this post about ?'%>
     </div>
+
+    <div class='create-post-body-container'>
+      <%= form.label :body %>
+      <%= form.text_area :body, 
+                          placeholder: 'My amazing post'%>
+    </div>
+    
+    <%= form.submit %>
+
   <% end %>
 </div>
