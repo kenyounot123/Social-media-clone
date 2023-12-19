@@ -6,5 +6,5 @@ class User < ApplicationRecord
   validates :name, length: { minimum: 2, maximum: 25}, on: :edit
 
   has_many :posts
-  has_many :comments
+  has_many :comments, as: :commentable
 end
