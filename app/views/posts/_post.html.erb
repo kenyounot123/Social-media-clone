@@ -25,7 +25,8 @@
           <%= link_to "Comment", 
                       new_post_comment_path(post.id),
                       data: {
-                        turbo_frame: dom_id(Comment.new)} %>
+                        turbo_frame: "_top"
+                      } %>
         </li>
         <li class="list-group-item"><%= link_to "Share" %></li>
       </ul>
@@ -38,7 +39,8 @@
                         method: :delete %>
         <% end %>
       </div>
-  </div> 
+  </div>
+
 <% end %>
 
 

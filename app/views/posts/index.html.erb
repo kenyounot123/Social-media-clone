@@ -3,7 +3,11 @@
 <%= turbo_frame_tag Post.new %><br>
 
 <%= turbo_frame_tag "posts" do %>
-  <%= render @posts %>
-<% end %>
+  <% @posts.each do |post| %>
+    <%= render post %>
 
-<%= turbo_frame_tag  Comment.new %>
+    <% post.comments.each do |comment| %>
+      <%= render comment %>
+    <% end %>
+  <% end %>
+<% end %>
