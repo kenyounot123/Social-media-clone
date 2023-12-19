@@ -7,3 +7,8 @@ li {
 .post-title-container {
   font-size: 1.75rem;
 }
+
+#my-list-group .list-group-item {
+  display: flex;
+  border: none;
+}

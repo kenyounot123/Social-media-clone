@@ -14,13 +14,15 @@
       </div>
     </div>
     
-    <div class="card-body">
-      <%= link_to "Like" %>
-      <%= link_to "Comment" %>
-      <%= link_to "Share" %>
+    <div id="post-actions" class="card-body">
+      <ul id="my-list-group" class="list-group flex-row justify-content-evenly">
+        <li class="list-group-item"><%= link_to "Like" %></li>
+        <li class="list-group-item"><%= link_to "Comment" %></li>
+        <li class="list-group-item"><%= link_to "Share" %></li>
+      </ul>
     </div>
 
-      <div class="post-actions">
+      <div>
         <% if current_user == post.user %>
           <%= button_to "Delete",
                         post_path(post),
