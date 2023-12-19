@@ -1,0 +1,26 @@
+<div class='text-center create-comment-container container'>
+  <%= form_with model: [post,comment], 
+                data: { 
+                  controller: "reset-form",
+                  action: 'turbo:submit-end->reset-form#reset' } do |form| %>
+    <% if post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul>
+          <% post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class='create-comment-container'>
+      <%= form.label :content, "#{current_user.name}" %>
+      <%= form.text_area :content, 
+                          placeholder: 'Write a comment...'%>
+    </div>
+    
+    <%= form.submit class: "btn btn-primary" %>
+    <%# <%= link_to "Cancel", dashboard_path, class: "btn btn-secondary" %>
+  <% end %>
+</div>
