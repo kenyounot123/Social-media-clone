@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "posts#index", as: :dashboard
 
-  resources :posts do 
+  resources :posts, except: [:show] do 
     resources :comments
   end
 

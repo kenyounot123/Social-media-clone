@@ -1,6 +1,6 @@
 <h1>Welcome <%= current_user.name %></h1>
 
-<%= turbo_frame_tag Post.new %>
+<%= turbo_frame_tag Post.new %><br>
 
 <%= turbo_frame_tag "posts" do %>
   <%= render @posts %>

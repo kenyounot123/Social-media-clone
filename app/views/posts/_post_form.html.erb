@@ -26,7 +26,7 @@
                           placeholder: 'My amazing post'%>
     </div>
     
-    <%= form.submit %>
-
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to "Cancel", dashboard_path, class: "btn btn-secondary" %>
   <% end %>
 </div>
