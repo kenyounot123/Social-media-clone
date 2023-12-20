@@ -11,7 +11,12 @@ class CommentsController < ApplicationController
     @comment.user_id = @user
 
     if @comment.save 
-      redirect_to dashboard_path, notice: 'Comment successfully created'
+      respond_to do |format|
+        format.html {
+          redirect_to dashboard_path, notice: 'Comment successfully created'
+        }
+        format.turbo_stream
+      end
     else
       flash[:alert] = 'Something went wrong when trying to comment'
       render :new, status: :unprocessable_entity

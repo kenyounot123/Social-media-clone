@@ -1,5 +1,7 @@
-<div class="card w-25 mx-auto">
-  <div class="card-body">
-    <%= find_username(comment.user_id) %> commented: <%= comment.content %>
+<%= turbo_frame_tag comment do %>
+  <div class="card w-25 mx-auto">
+    <div class="card-body">
+      <%= find_username(comment.user_id) %> commented: <%= comment.content %>
+    </div>
   </div>
-</div>
+<% end %>

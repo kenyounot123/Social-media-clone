@@ -17,7 +17,7 @@
     <div id="post-actions" class="card-body">
       <ul id="my-list-group" class="list-group flex-row justify-content-evenly">
         <li class="list-group-item">
-          <div class="like-count">123</div>
+          <div class="like-count">123</div> 
           <svg id="thumbs-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>thumb-up-outline</title><path d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z" /></svg>
           <%= link_to "Like" %>
         </li>
@@ -25,7 +25,7 @@
           <%= link_to "Comment", 
                       new_post_comment_path(post.id),
                       data: {
-                        turbo_frame: "_top"
+                        turbo_frame: "new_comment_for_post_#{post.id}"
                       } %>
         </li>
         <li class="list-group-item"><%= link_to "Share" %></li>
@@ -44,10 +44,3 @@
 <% end %>
 
 
-
-<%# <% unless current_page?(post_path(post)) %> 
-          <%# <% link_to "View Post", %>
-                      <%# post_path(post), %>
-                      <%# class: "btn btn-info", %>
-                      <%# data: { turbo_frame: "_top" } %> 
-         <%# end %> 
