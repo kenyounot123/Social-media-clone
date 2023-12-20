@@ -9,5 +9,6 @@
     <% post.comments.each do |comment| %>
       <%= render comment %>
     <% end %>
+    <%= turbo_frame_tag Comment.new %>
   <% end %>
 <% end %>
