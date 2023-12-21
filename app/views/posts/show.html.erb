@@ -1,1 +1,9 @@
 <%= render @post, path: post_path(@post) %>
+<%= turbo_frame_tag "comments" do %>
+  <% @post.comments.each do |comment| %>
+    <%= render comment %>
+  <% end %>
+<% end %>
+<div class='create-comment'>
+  <%= render 'comments/comment_form', post: @post, comment: @comment %>
+</div>
