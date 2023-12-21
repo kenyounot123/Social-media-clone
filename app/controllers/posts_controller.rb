@@ -20,7 +20,8 @@ class PostsController < ApplicationController
           flash[:notice] = 'Post successfully created'
           redirect_to @post
         }
-        format.turbo_stream
+        format.turbo_stream {
+        }
       end
     else
       flash[:alert] = 'Something went wrong'

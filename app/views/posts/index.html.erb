@@ -4,11 +4,8 @@
 
 <%= turbo_frame_tag "posts" do %>
   <% @posts.each do |post| %>
-    <%= render post %>
+    <%= render post, path: post_path(post) %>
 
-    <%# Logic error: on new post, not creating turbo frame tags %>
-    <%# so results in content missing when I click comments link %>
-    <%# but works when I go back to root path then click comments link %>
     <% if !post.comments.nil? %>
       <%= turbo_frame_tag "comments" do %>
         <% post.comments.each do |comment| %>
@@ -17,7 +14,7 @@
       <% end %>
     <% end %>
 
-    <%= turbo_frame_tag "new_comment_for_post_#{post.id}" %>
+    <%# <%= turbo_frame_tag "new_comment_for_post_#{post.id}" %>
   <% end %>
 
 <% end %>

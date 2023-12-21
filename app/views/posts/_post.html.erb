@@ -2,7 +2,11 @@
   <div class="card w-25 container post-container">
 
     <div class="card-header">
-      <%= link_to post.user.name, user_path(post.user) %> posted 
+      <%= link_to post.user.name,
+                       user_path(post.user),
+                       data: {
+                        turbo_frame: "_top"
+                       } %> posted 
     </div>
 
     <div class="card-body">
@@ -23,9 +27,9 @@
         </li>
         <li class="list-group-item">
           <%= link_to "Comment", 
-                      new_post_comment_path(post.id),
+                      path,
                       data: {
-                        turbo_frame: "new_comment_for_post_#{post.id}"
+                        turbo_frame: "_top"
                       } %>
         </li>
         <li class="list-group-item"><%= link_to "Share" %></li>
@@ -35,7 +39,7 @@
       <div>
         <% if current_user == post.user %>
           <%= button_to "Delete",
-                        post_path(post),
+                        path,
                         method: :delete %>
         <% end %>
       </div>
