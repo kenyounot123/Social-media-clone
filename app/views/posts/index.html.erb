@@ -7,13 +7,12 @@
     <%= render post, path: post_path(post) %>
 
     <% if !post.comments.nil? %>
-      <%= turbo_frame_tag "comments" do %>
+      <%= turbo_frame_tag "comments_for_#{post.id}" do %>
         <% post.comments.each do |comment| %>
             <%= render comment %>
         <% end %>
       <% end %>
     <% end %>
-    
-  <% end %>
 
+  <% end %>
 <% end %>

@@ -1,1 +1,1 @@
-<%= turbo_stream.after "comments", @comment %>
+<%= turbo_stream.append "comments_for_#{@post.id}", @comment %>

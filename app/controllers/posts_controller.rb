@@ -50,12 +50,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to dashboard_path, notice: 'Post successfully deleted' }
-      format.turbo_stream { 
-        @post.comments.each do |comment|
-          render turbo_stream.remove(comment)
-        end
-        render turbo_stream: turbo_stream.remove("post_#{@post.id}")
-      }
+      format.turbo_stream 
     end
   end
 
