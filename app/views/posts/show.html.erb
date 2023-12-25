@@ -1,3 +1,4 @@
+<%= link_to "Back", :back, class: "fs-1 text-center"%>
 <%= render @post, path: post_path(@post) %>
 <%= turbo_frame_tag "comments_for_#{@post.id}" do %>
   <% @post.comments.each do |comment| %>

@@ -36,6 +36,10 @@
       </ul>
     </div>
 
+      <div class="comment-count"> 
+        <%= post.comments.count %> comments
+      </div>
+
       <div>
         <% if current_user == post.user %>
           <%= button_to "Delete",
