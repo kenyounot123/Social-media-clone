@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   root "posts#index", as: :dashboard
 
   resources :posts do 
+    member do 
+      patch 'like', to: 'likes#update'
+    end
     resources :comments
   end
 

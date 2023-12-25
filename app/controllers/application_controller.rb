@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include ActionView::RecordIdentifier
   before_action :authenticate_user!
   # Redirect to profile creation after logging in
   def after_sign_in_path_for(resource)
