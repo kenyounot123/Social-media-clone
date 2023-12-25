@@ -1,8 +1,4 @@
 class UsersController < ApplicationController
-
-  # def new
-  # end
-
   def edit
     @user = current_user
   end
@@ -15,12 +11,8 @@ class UsersController < ApplicationController
       render :edit, notice: "Something went wrong, profile was not updated"
     end
   end
-  
-  # def show
-  #   @user = current_user
-  # end
 
-  # private
+  private
 
   def user_params
     params.require(:user).permit(:name)

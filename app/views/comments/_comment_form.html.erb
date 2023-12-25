@@ -16,7 +16,7 @@
 
     <div class='create-comment-container'>
       <%= form.label :content, "#{current_user.name}" %>
-      <%= form.text_area :content, 
+      <%= form.text_field :content, 
                           placeholder: 'Write a comment...',
                           autofocus: true %>
       
