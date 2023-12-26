@@ -9,4 +9,16 @@ class Post < ApplicationRecord
   has_many :liking_users, through: :likes, source: :user
   
   scope :ordered, -> { order(id: :desc) }
+
+  def liked_by?(user)
+    likes.where(user: user).any?
+  end
+
+  def unlike(user)
+    likes.where(user: user).destroy_all
+  end
+
+  def like(user)
+    likes.where(user: user).first_or_create
+  end
 end

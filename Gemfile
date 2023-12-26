@@ -75,5 +75,7 @@ gem "devise", "~> 4.9"
 
 gem "jsbundling-rails", "~> 1.2"
 
-gem 'omniauth-github', '~> 2.0.0'
+gem "omniauth-github", "~> 2.0.0"
 gem "omniauth-rails_csrf_protection"
+
+gem "gravtastic"

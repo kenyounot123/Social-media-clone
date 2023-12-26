@@ -24,16 +24,15 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex" role="search">
+      <form class="d-flex mx-lg-auto flex-grow-0" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-      <ul class="navbar-nav">
-        <% unless user_signed_in? %>
+      <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <%= link_to "Sign In", new_user_session_path %>
+             <%= image_tag current_user.gravatar_url %>
+             <%= current_user.name %>
           </li>
-        <% end %>
       </ul>
     </div>
   </div>

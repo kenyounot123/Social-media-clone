@@ -5,8 +5,8 @@
     <h5 class="mt-0"><%= @user.name %></h5>
     <p><%= @user.email %></p>
   </div>
-  <%= link_to "Follow", class: "btn btn-primary" %>
-  <%= link_to "Message", class: "btn btn-primary" %>
+  <%= link_to "Follow", "#", id: "follow-btn", class: "btn btn-primary" %>
+  <%= link_to "Message", "#", id: "message-btn", class: "btn btn-secondary" %>
 </div>
 <h1 class='text-center'>All of <%= @user.name %>'s recent posts</h1>
 <% @posts.each do |post| %>
