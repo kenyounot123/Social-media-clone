@@ -1,0 +1,19 @@
+<%= link_to "Back", :back, class: 'fs-1'%>
+<div class="d-flex position-relative justify-content-center gap-4">
+  <img src="" class="flex-shrink-0 me-3" alt="profile-picture">
+  <div>
+    <h5 class="mt-0"><%= @user.name %></h5>
+    <p><%= @user.email %></p>
+  </div>
+  <%= link_to "Follow", class: "btn btn-primary" %>
+  <%= link_to "Message", class: "btn btn-primary" %>
+</div>
+<h1 class='text-center'>All of <%= @user.name %>'s recent posts</h1>
+<% @posts.each do |post| %>
+  <%= render post, path: post_path(post)  %>
+  <%= turbo_frame_tag "comments_for_#{post.id}" do %>
+    <% post.comments.each do |comment| %>
+      <%= render comment %>
+    <% end %>
+  <% end %>
+<% end %>

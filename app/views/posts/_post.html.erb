@@ -45,7 +45,8 @@
         <% if current_user == post.user %>
           <%= button_to "Delete",
                         path,
-                        method: :delete %>
+                        method: :delete,
+                        class: 'btn btn-outline-danger' %>
         <% end %>
       </div>
   </div>

@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :likes
   has_many :liked_posts, through: :likes, source: :post
 
+  has_many :follows
+  has_many :followers, through: :follows, source: :user
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
