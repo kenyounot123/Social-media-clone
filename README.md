@@ -1,24 +1,15 @@
-# README
+# Social Media Clone
+Created a social media site consisting of the core user functionalities of any social media apps such as Facebook, twitter, threads, etc.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Link to project:** none.com/
 
-Things you may want to cover:
+![alt tag](http://placecorgi.com/1200/650)
 
-* Ruby version
+## How It's Made:
 
-* System dependencies
+**Tech used:** HTML, CSS, JavaScript, Bootstrap, Ruby on Rails, Ruby, Hotwire
 
-* Configuration
+I used Devise and OAuth for user authentication. Users must sign in to access the site and can even sign in through github. Once signed in, a confirmation email will be sent to the user and I did this using Action Mailer. Users are able to create posts (using texts and images), can like posts, can comment on posts, as well as send follow request to other users. 
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Lessons Learned:
