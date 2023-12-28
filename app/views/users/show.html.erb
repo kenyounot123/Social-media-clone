@@ -1,16 +1,19 @@
 <%= link_to "Back", :back, class: 'fs-1'%>
-<div class="d-flex position-relative justify-content-center gap-4">
+<div class=>
   <img src="" class="flex-shrink-0 me-3" alt="profile-picture">
   <div>
     <h5 class="mt-0"><%= @user.name %></h5>
     <p><%= @user.email %></p>
   </div>
-    <% if current_user == @user  %>
-      <%= link_to "Follow List", "#", id: "follow-btn", class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to "Follow", "#", id: "follow-btn", class: "btn btn-primary" %>
-      <%= link_to "Message", "#", id: "message-btn", class: "btn btn-secondary" %>
-    <% end %>
+  <% if current_user != @user && !current_user.following?(@user) %>
+    <%= render 'follow_form', relationship: current_user.active_relationships.build,
+                              user: @user %>
+  <% else %>
+    <%= render 'unfollow_form', 
+                relationship: current_user.active_relationships.find_by(followed_id: @user.id) %>
+  <% end %> <br>
+  <%= link_to "Following", "#", id: "follow-btn", class: "" %> 
+  <%= link_to "Followers", "#", id: "message-btn", class: "" %>
 </div>
 <h1 class='text-center'>All of <%= @user.name %>'s recent posts</h1>
 <% @posts.each do |post| %>

@@ -17,6 +17,12 @@ class UsersController < ApplicationController
     @posts = @user.posts.all.ordered
   end
 
+  def following
+  end
+
+  def followers
+  end
+
   private
 
   def user_params

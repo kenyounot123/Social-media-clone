@@ -38,7 +38,7 @@ class User < ApplicationRecord
 
   # Returns true if the current user is following the other user.
   def following?(other_user)
-    following.include?(other_user)
+    followings.include?(other_user)
   end
 
   def self.from_omniauth(access_token)
