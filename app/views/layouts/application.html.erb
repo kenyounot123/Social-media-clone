@@ -12,7 +12,6 @@
   </head>
 
   <body class="d-flex flex-column min-vh-100">
-    <div class="flex-grow-1">
       <% if user_signed_in? %>
         <%= render partial: 'shared/navbar' %>
       <% end %>
@@ -22,7 +21,7 @@
           <%= msg %>
         </div>
       <% end %>
-      
+    <div class="flex-grow-1">
       <%= yield %>
     </div>
     <footer class="bg-body-tertiary text-center text-lg-start mt-auto flex-grow-0">

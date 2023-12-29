@@ -14,17 +14,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.all.ordered
+    @pagy, @posts = pagy(@user.posts.all.ordered)
   end
 
   def following
     @user = User.find(params[:id])
-    @following = @user.followings.all
+    @pagy, @following = pagy(@user.followings.all)
   end
 
   def followers
     @user = User.find(params[:id])
-    @followers = @user.followers.all
+    @pagy, @followers = pagy(@user.followers.all)
   end
 
   private

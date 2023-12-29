@@ -5,3 +5,4 @@
     <%= render partial: 'follow_list', collection: @followers, as: :user %>
   <% end %>
 </div>
+<%= render partial: "shared/pagination", locals: { pagy: @pagy } %>
