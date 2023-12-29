@@ -11,19 +11,21 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <% if user_signed_in? %>
-      <%= render partial: 'shared/navbar' %>
-    <% end %>
+  <body class="d-flex flex-column min-vh-100">
+    <div class="flex-grow-1">
+      <% if user_signed_in? %>
+        <%= render partial: 'shared/navbar' %>
+      <% end %>
 
-    <% flash.each do |type, msg| %>
-      <div class="alert alert-info">
-        <%= msg %>
-      </div>
-    <% end %>
-    
-    <%= yield %>
-    <footer class="bg-body-tertiary text-center text-lg-start">
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-info">
+          <%= msg %>
+        </div>
+      <% end %>
+      
+      <%= yield %>
+    </div>
+    <footer class="bg-body-tertiary text-center text-lg-start mt-auto flex-grow-0">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
         © 2023 Copyright:
         <%= link_to "My Social Media Clone", "#", class: "text-body" %>
