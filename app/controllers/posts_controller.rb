@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.ordered
+    @pagy, @posts = pagy(Post.ordered)
   end
 
   def new

@@ -69,13 +69,18 @@ group :test do
   gem "selenium-webdriver"
 end
 
+#Env variables
 gem "figaro"
-
-gem "devise", "~> 4.9"
 
 gem "jsbundling-rails", "~> 1.2"
 
+#Authentication
+gem "devise", "~> 4.9"
 gem "omniauth-github", "~> 2.0.0"
 gem "omniauth-rails_csrf_protection"
 
+#For user avatars
 gem "gravtastic"
+
+#Pagination
+gem "pagy"
