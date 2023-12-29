@@ -1,0 +1,7 @@
+<div class="mb-3 d-flex justify-content-center">
+  <% if @user.followers.empty? %>
+    <p class="fs-1">This user has no followers</p>
+  <% else %>
+    <%= render partial: 'follow_list', collection: @followers, as: :user %>
+  <% end %>
+</div>

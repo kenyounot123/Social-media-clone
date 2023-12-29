@@ -12,8 +12,14 @@
     <%= render 'unfollow_form', 
                 relationship: current_user.active_relationships.find_by(followed_id: @user.id) %>
   <% end %> <br>
-  <%= link_to "Following", "#", id: "follow-btn", class: "" %> 
-  <%= link_to "Followers", "#", id: "message-btn", class: "" %>
+  <div>
+    <%= @user.followings.count %>
+    <%= link_to "Following", following_user_path(@user), class: "" %> 
+  </div>
+  <div>
+    <%= @user.followers.count %>
+    <%= link_to "Followers", followers_user_path(@user), class: "" %>
+  </div>
 </div>
 <h1 class='text-center'>All of <%= @user.name %>'s recent posts</h1>
 <% @posts.each do |post| %>
