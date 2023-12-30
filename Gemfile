@@ -68,19 +68,17 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-#Env variables
-gem "figaro"
-
 gem "jsbundling-rails", "~> 1.2"
 
+#Mailer
+gem "letter_opener", group: :development
+#Env variables
+gem "figaro"
 #Authentication
 gem "devise", "~> 4.9"
 gem "omniauth-github", "~> 2.0.0"
 gem "omniauth-rails_csrf_protection"
-
 #For user avatars
 gem "gravtastic"
-
 #Pagination
 gem "pagy"
