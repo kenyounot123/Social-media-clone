@@ -4,17 +4,17 @@
     <div class="card-header">
       <%= image_tag post.user.gravatar_url(:size => 30) %>
       <%= link_to post.user.name,
-                       user_path(post.user),
-                       data: {
+                      user_path(post.user),
+                      data: {
                         turbo_frame: "_top"
-                       } %> posted 
+                      } %> posted 
     </div>
 
     <div class="card-body">
-      <div class="card-title post-title-container container-md">
+      <div class="card-title post-title-container">
         <%= post.title %>
       </div>
-      <div class="post-body-container container-md">
+      <div class="post-body-container">
         <%= post.body %>
       </div>
     </div>
@@ -31,7 +31,6 @@
                         turbo_frame: "_top"
                       } %>
         </li>
-        <li class="list-group-item"><%= link_to "Share" %></li>
       </ul>
     </div>
 
@@ -48,7 +47,4 @@
         <% end %>
       </div>
   </div>
-
 <% end %>
-
-
