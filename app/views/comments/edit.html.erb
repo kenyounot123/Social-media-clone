@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "comment_#{@comment.id}" do %> 
+  <%= render partial: "comment_form", 
+              locals: { 
+                post: post_for_this_comment(@comment),
+                comment: @comment
+              } %>
+<% end %>
