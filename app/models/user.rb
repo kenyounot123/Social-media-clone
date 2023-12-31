@@ -8,7 +8,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:github]
-  validates :name, length: { minimum: 2, maximum: 25}, on: :edit
+  validates :name, presence: true, length: { minimum: 2, maximum: 20}, on: :edit
+  validates :email, presence: true, uniqueness: true
 
   has_many :posts
   has_many :comments
