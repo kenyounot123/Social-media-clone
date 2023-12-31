@@ -11,5 +11,8 @@ Created a social media site consisting of the core user functionalities of any s
 
 I used Devise and OAuth for user authentication. Users must sign in to access the site and can even sign in through github. Once signed in, a confirmation email will be sent to the user and I did this using Action Mailer. Users are able to create posts (using texts and images), can like posts, can comment on posts, as well as send follow request to other users. 
 
+## Future edits:
+Make dark mode feature
+Make search feature
 
 ## Lessons Learned:

@@ -1,6 +1,6 @@
 <%= turbo_frame_tag Post.new %><br>
 
-<div class="">
+<div>
   <%= turbo_frame_tag "posts" do %>
     <% @posts.each do |post| %>
       <%= render post, path: post_path(post) %>
