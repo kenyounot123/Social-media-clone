@@ -1,6 +1,8 @@
 <%= link_to "Back", :back, class: 'fs-1'%>
-<h2>Edit profile</h2>
-<% if current_user.name.nil? %>
-  Please create a username for other users to see
-<% end %>
-<%= render partial: 'profile_form', locals: { user: @user } %>
+<div class="text-center">
+  <h2>Edit profile</h2>
+  <% if current_user.name.nil? %>
+    Please create a username for other users to see
+  <% end %>
+  <%= render partial: 'profile_form', locals: { user: @user } %>
+</div>

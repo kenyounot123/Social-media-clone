@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FbClone</title>
+    <title>Stellar</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,8 +11,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="d-flex flex-column min-vh-100 bg-dark bg-gradient"
-        style="--bs-bg-opacity: .5;">
+  <body id="main-background" class="d-flex flex-column min-vh-100">
       <% if user_signed_in? %>
         <%= render partial: 'shared/navbar' %>
       <% end %>
@@ -25,7 +24,7 @@
     <div class="flex-grow-1">
       <%= yield %>
     </div>
-    <footer class="bg-body-tertiary text-center text-lg-start flex-grow-0">
+    <footer  class="text-center text-lg-start flex-grow-0">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
         © 2023 Copyright:
         <%= link_to "My Social Media Clone", "#", class: "text-body" %>
