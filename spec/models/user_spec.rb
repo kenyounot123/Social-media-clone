@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   context 'when validating on edit' do 
     it 'is not valid with name greater than 25 characters' do
-      user = User.new(name: 'qwerqwerqwerqweqwerqwer', email: 'test@example.com', password: 'somepassword')
+      user = build(:user, name: "namegreaterthan25characters")
       expect(user).to_not be_valid(:edit)
     end
     it 'is not valid with name less than 2 characters' do
-      user = User.new(name: 'j', email: 'test@example.com', password: 'somepassword')
+      user = build(:user, name: "s")
       expect(user).to_not be_valid(:edit)
     end
   end
@@ -27,8 +27,8 @@ RSpec.describe User, type: :model do
     after(:each) do
       User.set_callback(:create, :after, :send_welcome_email)
     end
-    let(:user) { User.create!(id: 1, name: 'Alice', email: 'alice@example.com', password: 'password' ) }
-    let(:other_user) { User.create!(id: 2, name: 'michael', email: 'michael@example.com', password: 'password' ) }
+    let(:user) { create(:user) }
+    let(:other_user) { create(:user, id: 2, name: 'michael', email: 'michael@example.com', password: 'password' ) }
     describe '#follow' do
       it 'creates an active relationship of a user following another user' do
         user.follow(other_user)
