@@ -1,4 +1,4 @@
-<div class='text-center create-comment-container container'>
+<div class='text-center container'>
   <%= form_with model: [post,comment], 
                 data: { 
                   controller: "reset-form",
@@ -14,7 +14,7 @@
       </div>
     <% end %>
 
-    <div class='create-comment-container'>
+    <div>
       <%= form.label :content, "#{current_user.name}" %>
       <%= form.text_field :content, 
                           placeholder: 'Write a comment...',

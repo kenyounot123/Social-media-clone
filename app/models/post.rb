@@ -9,7 +9,9 @@ class Post < ApplicationRecord
   has_many :liking_users, through: :likes, source: :user
   
   scope :ordered, -> { order(id: :desc) }
-
+  scope :following_and_own_posts, ->(user) { 
+    where(user_id: [user.id] + user.followings.pluck(:id))
+  }
   def liked_by?(user)
     likes.where(user: user).any?
   end

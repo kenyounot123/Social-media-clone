@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @pagy, @posts = pagy(Post.ordered)
+    @pagy, @posts = pagy(Post.ordered.following_and_own_posts(current_user))
   end
 
   def new

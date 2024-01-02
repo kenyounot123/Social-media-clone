@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :find_commentable, only: :create
+
   def new
     @post = Post.find(params[:post_id])
     @comment = Comment.new
@@ -25,7 +27,8 @@ class CommentsController < ApplicationController
   def create
     @user = current_user.id
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.build(comment_params)
+    # @comment = @post.comments.build(comment_params)
+    @comment = @commentable.comments.build(comment_params)
     @comment.user_id = @user
 
     if @comment.save 
@@ -58,4 +61,13 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content)
   end
+
+  def find_commentable
+    if params[:comment_id]
+      @commentable = Comment.find_by_id(params[:comment_id])
+    elsif params[:post_id]
+      @commentable = Post.find_by_id(params[:post_id])
+    end
+  end
+
 end
