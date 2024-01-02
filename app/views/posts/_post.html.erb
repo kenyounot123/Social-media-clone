@@ -1,5 +1,5 @@
 <%= turbo_frame_tag post do %>
-  <div class="card w-25 container post-container mt-3 border-dark border-2">
+  <div class="card w-25 container-xl mt-3 border-dark border-2">
 
     <div class="card-header">
       <%= image_tag post.user.gravatar_url(:size => 30) %>
@@ -14,7 +14,7 @@
       <div class="card-title post-title-container">
         <%= post.title %>
       </div>
-      <div class="post-body-container">
+      <div>
         <%= post.body %>
       </div>
     </div>

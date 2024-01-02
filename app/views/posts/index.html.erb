@@ -1,16 +1,21 @@
-<%= turbo_frame_tag Post.new %><br>
-
 <div>
-  <%= turbo_frame_tag "posts" do %>
-    <% @posts.each do |post| %>
-      <%= render post, path: post_path(post) %>
+  <div>
+    <div>
+      <%= turbo_frame_tag Post.new %><br>
+    </div>
+    <div>
+      <%= turbo_frame_tag "posts" do %>
+        <% @posts.each do |post| %>
+          <%= render post, path: post_path(post) %>
 
-      <%= turbo_frame_tag "comments_for_#{post.id}" do %>
-        <% post.comments.each do |comment| %>
-            <%= render comment %>
+          <%= turbo_frame_tag "comments_for_#{post.id}" do %>
+            <% post.comments.each do |comment| %>
+                <%= render comment %>
+            <% end %>
+          <% end %>
         <% end %>
+        <%= render partial: "shared/pagination", locals: { pagy: @pagy } %>
       <% end %>
-    <% end %>
-    <%= render partial: "shared/pagination", locals: { pagy: @pagy } %>
-  <% end %>
+    </div>
+  </div>
 </div>
