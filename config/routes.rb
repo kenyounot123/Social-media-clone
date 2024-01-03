@@ -13,9 +13,11 @@ Rails.application.routes.draw do
     member do 
       patch 'like', to: 'likes#update'
     end
-    resources :comments do
-      resources :comments
-    end
+    resources :comments 
+  end
+  
+  resources :comments do
+    resources :comments
   end
 
   resources :users do

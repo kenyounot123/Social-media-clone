@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "reply_for_#{comment.id}" do %>
+  <div>
+    <strong><%= find_username(comment.user_id) %></strong> replied: <%= comment.content %>
+  </div>
+<% end %>

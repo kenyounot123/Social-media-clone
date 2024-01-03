@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :find_commentable, only: :create
+  before_action :find_commentable, only: [:create, :new]
 
+  #For reply form
   def new
-    @post = Post.find(params[:post_id])
-    @comment = Comment.new
+    @comment = @commentable
   end
 
   def edit
@@ -26,17 +26,28 @@ class CommentsController < ApplicationController
 
   def create
     @user = current_user.id
-    @post = Post.find(params[:post_id])
     # @comment = @post.comments.build(comment_params)
     @comment = @commentable.comments.build(comment_params)
     @comment.user_id = @user
 
-    if @comment.save 
+    if @comment.save && @comment.commentable_type == 'Post' 
+      @post = Post.find(params[:post_id])
       respond_to do |format|
         format.html {
           redirect_to dashboard_path, notice: 'Comment successfully created'
         }
         format.turbo_stream
+      end
+    elsif @comment.save && @comment.commentable_type == 'Comment'
+      respond_to do |format|
+        format.html {
+          redirect_to dashboard_path, notice: 'Comment successfully created'
+        }
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.append('replies', 
+                                                  partial: 'comments/reply',
+                                                  locals: { comment: @comment } )
+        }
       end
     else
       flash[:alert] = 'Something went wrong when trying to comment'

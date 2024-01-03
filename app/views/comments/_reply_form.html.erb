@@ -1,0 +1,10 @@
+<%= form_with model: [comment, Comment.new],
+              data: { 
+                controller: "reset-form",
+                action: 'turbo:submit-end->reset-form#reset' } do |f| %>
+  <%= f.text_field :content, placeholder: "Add a reply",
+                            class: 'form-control' %>
+  <%= f.submit "Reply", class: 'btn btn-primary btn-sm' %>
+  <%= link_to "Cancel", post_path(comment.commentable),
+                      class: 'btn btn-secondary btn-sm' %>
+<% end %>
