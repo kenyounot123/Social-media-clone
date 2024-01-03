@@ -10,7 +10,7 @@
           <%= turbo_frame_tag "comments_for_#{post.id}" do %>
 
             <% post.comments.each do |comment| %>
-                <%= render comment %>
+                <%= render comment, slice: @comment_slice %>
             <% end %>
 
           <% end %>

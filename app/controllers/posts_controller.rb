@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @pagy, @posts = pagy(Post.ordered.following_and_own_posts(current_user))
+    @comment_slice = true
   end
 
   def new
@@ -11,6 +12,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
+    @comment_slice = false
   end
 
   def create

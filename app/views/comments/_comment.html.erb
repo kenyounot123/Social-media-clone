@@ -7,13 +7,13 @@
         </div>
         <%= turbo_frame_tag "replies_for_comment_#{comment.id}" do %>
           <% unless comment.comments.empty? %>
-            <% comment.comments[0,3].each do |reply| %>
+            <% comment.comments.take(slice ? 3 : comment.comments.size).each do |reply| %>
               <%= turbo_frame_tag "reply_#{reply.id}" do %>
                 <div>
                   <%= render "comments/reply", comment: reply %>
                 </div>
-              <% end %> 
-            <% end %>
+              <% end %>
+            <% end %> 
           <% end %>
         <% end %>
         <div>
@@ -51,11 +51,13 @@
                           data: {
                             turbo_frame: "reply_for_comment_#{comment.id}"
                           } %>
-      <% if comment.comments.count > 3 %>
-        <%= link_to 'View more', post_path(comment.commentable),
-                                data: {
-                                  turbo_frame: "_top"
-                                } %>
+      <% if comment.comments.count > 3 && current_page?(dashboard_path) %>
+        <div>
+          <%= link_to 'View more', post_path(comment.commentable),
+                                  data: {
+                                    turbo_frame: '_top'
+                                  } %>
+        </div>
       <% end %>
     </div>
   </div>
