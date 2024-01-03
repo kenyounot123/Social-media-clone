@@ -5,10 +5,10 @@
         <div>
           <strong><%= find_username(comment.user_id) %></strong> commented: <%= comment.content %>
         </div>
-        <%= turbo_frame_tag "replies" do %>
+        <%= turbo_frame_tag "replies_for_comment_#{comment.id}" do %>
           <% unless comment.comments.empty? %>
-            <% comment.comments.each do |reply| %>
-              <%= turbo_frame_tag "reply_for_#{reply.id}" do %>
+            <% comment.comments[0,3].each do |reply| %>
+              <%= turbo_frame_tag "reply_#{reply.id}" do %>
                 <div>
                   <%= render "comments/reply", comment: reply %>
                 </div>
@@ -16,7 +16,6 @@
             <% end %>
           <% end %>
         <% end %>
-
         <div>
           <%= turbo_frame_tag "reply_for_comment_#{comment.id}" do %>
           <% end %>
@@ -47,11 +46,17 @@
         <% end %>
       </div>
     </div>
-    <div class="mt-0 pt-0">
+    <div class="mt-0 pt-0 d-flex gap-3">
       <%= link_to 'Reply', new_comment_comment_path(comment.id),
                           data: {
                             turbo_frame: "reply_for_comment_#{comment.id}"
                           } %>
+      <% if comment.comments.count > 3 %>
+        <%= link_to 'View more', post_path(comment.commentable),
+                                data: {
+                                  turbo_frame: "_top"
+                                } %>
+      <% end %>
     </div>
   </div>
 <% end %> 

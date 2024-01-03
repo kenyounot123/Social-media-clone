@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
           redirect_to dashboard_path, notice: 'Comment successfully created'
         }
         format.turbo_stream {
-          render turbo_stream: turbo_stream.append('replies', 
+          render turbo_stream: turbo_stream.append("replies_for_comment_#{@comment.commentable_id}", 
                                                   partial: 'comments/reply',
                                                   locals: { comment: @comment } )
         }
