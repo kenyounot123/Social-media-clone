@@ -9,6 +9,7 @@ class Post < ApplicationRecord
   has_many :liking_users, through: :likes, source: :user
   
   scope :ordered, -> { order(id: :desc) }
+  #Gets posts made by users that the current user follows and also their own posts
   scope :following_and_own_posts, ->(user) { 
     where(user_id: [user.id] + user.followings.pluck(:id))
   }

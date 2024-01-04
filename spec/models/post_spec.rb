@@ -14,10 +14,40 @@ RSpec.describe Post, type: :model do
   end
 
   context 'when removing a post with comments' do
-    it 'should also remove the comments for that post' do
-      post = create(:post, user: create(:user, id: 2, email: 'newemail@example.com'))
-      post.destroy
-      expect(Comment.find_by(commentable_id: 5)).to be_nil
+    it 'should also remove the comments' do
+      post = create(:post)
+      comments = create_list(:post_comment, 5, commentable: post)
+      expect { post.destroy }.to change { post.comments.count }.by(-5)
     end
   end
+  describe 'Post behavior' do 
+    let(:user) { create(:user) }
+    let(:post) { create(:post) }
+    describe '#liked_by?' do  
+      it 'returns true if post is liked by the given user' do 
+        post.like(user)
+        expect(post.liked_by?(user)).to eq(true)
+      end
+      it 'returns false if post is not liked by the given user' do
+        post.like(user)
+        post.unlike(user)
+        expect(post.liked_by?(user)).to eq(false)
+      end
+    end
+
+    describe '#unlike' do 
+      it 'removes like from post given by a particular user' do
+        post.like(user)
+        expect { post.unlike(user) }.to change { post.likes.count }.by(-1)
+      end
+    end
+
+    describe '#like' do 
+      it 'generates a like given by a particular user for the post' do
+        expect { post.like(user) }.to change { post.likes.count }.by(1)
+      end
+    end
+  end
+
+  
 end
