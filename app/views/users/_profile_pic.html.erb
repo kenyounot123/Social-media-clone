@@ -1,0 +1,8 @@
+<% if user.avatar.attached? %>
+  <%= image_tag user.avatar.variant(
+    resize_and_pad: size
+  ) %>
+<% else %>
+  <%= image_tag user.gravatar_url, 
+                alt: "profile-picture" %> 
+<% end %>

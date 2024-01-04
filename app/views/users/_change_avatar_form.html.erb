@@ -1,0 +1,5 @@
+<%= form_with model: user do |f| %>
+  <%= f.label :avatar, "Profile" %>
+  <%= f.file_field :avatar %>
+  <%= f.submit 'Submit', class: "btn btn-primary btn-sm" %>
+<% end %>
