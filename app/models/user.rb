@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
+  #Active storage for avatar 
+  has_one_attached :avatar
   
   has_many :likes
   has_many :liked_posts, through: :likes, source: :post

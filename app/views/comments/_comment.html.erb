@@ -51,7 +51,9 @@
                           data: {
                             turbo_frame: "reply_for_comment_#{comment.id}"
                           } %>
-      <% if comment.comments.count > 3 && current_page?(dashboard_path) %>
+      <% if comment.comments.count > 3 && 
+            (current_page?(dashboard_path) || 
+            current_page?(:controller => 'users', :action => 'show'))%>
         <div>
           <%= link_to 'View more', post_path(comment.commentable),
                                   data: {

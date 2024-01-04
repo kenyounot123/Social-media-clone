@@ -2,8 +2,13 @@
 <div class="text-center d-grid">
   <div class="row">
     <div class="col">
-      <%= image_tag @user.gravatar_url, 
-                    alt: "profile-picture" %> 
+      <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar %>
+      <% else %>
+        <%= image_tag @user.gravatar_url, 
+                      alt: "profile-picture" %> 
+      <% end %>
+      <%= render "change_avatar", user: @user %>
     </div>
     <div class="col">
       <h5 class="mt-0"><%= @user.name %></h5>
@@ -34,7 +39,7 @@
   <%= render post, path: post_path(post)  %>
   <%= turbo_frame_tag "comments_for_#{post.id}" do %>
     <% post.comments.each do |comment| %>
-      <%= render comment %>
+      <%= render comment, slice: @comment_slice %>
     <% end %>
   <% end %>
 <% end %>
