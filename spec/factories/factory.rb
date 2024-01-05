@@ -24,7 +24,6 @@ FactoryBot.define do
     factory :nested_comment do
       association :commentable, factory: :comment
     end
-    
   end
 
   factory :post do 
@@ -32,6 +31,5 @@ FactoryBot.define do
     title { "Random title" }
     body { "Random body" }
     id { generate(:id) }
-    
   end
 end 
