@@ -16,7 +16,7 @@ RSpec.describe Post, type: :model do
   context 'when removing a post with comments' do
     it 'should also remove the comments' do
       post = create(:post)
-      comments = create_list(:post_comment, 5, commentable: post)
+      create_list(:post_comment, 5, commentable: post)
       expect { post.destroy }.to change { post.comments.count }.by(-5)
     end
   end

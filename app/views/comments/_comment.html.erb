@@ -1,5 +1,5 @@
 <%= turbo_frame_tag comment do %>
-  <div class="card w-25 mx-auto border-dark border-1">
+  <div class="card w-50 mx-auto border-dark border-1">
     <div class="card-body d-flex justify-content-between">
       <div>
         <div>
@@ -10,7 +10,7 @@
             <% comment.comments.take(slice ? 3 : comment.comments.size).each do |reply| %>
               <%= turbo_frame_tag "reply_#{reply.id}" do %>
                 <div>
-                  <%= render "comments/reply", comment: reply %>
+                  <%= render "comments/reply", comment: reply %>                 
                 </div>
               <% end %>
             <% end %> 
@@ -21,30 +21,7 @@
           <% end %>
         </div>
       </div>
-      <div>
-        <% if current_user.id == comment.user_id %>
-          <div class="dropdown">
-              <%= link_to "#",
-                          class: "nav-link",
-                          data: {
-                            bs_toggle: "dropdown"
-                          } do %>
-                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="4" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-              <% end %>
-            <ul class="dropdown-menu">
-              <%= button_to "Delete",
-                          post_comment_path(comment.commentable_id, comment),
-                          method: :delete,
-                          class: 'dropdown-item btn btn-outline-danger btn-sm' %>
-              <%= link_to "Edit", edit_post_comment_path(comment.commentable_id, comment),
-                                  class: 'dropdown-item btn btn-outline-secondary btn-sm',
-                                  data: {
-                                    turbo_frame: "comment_#{comment.id}"
-                                  } %>
-            </ul>
-          </div>
-        <% end %>
-      </div>
+      <%= render 'comments/comment_dropdown', comment: comment %>
     </div>
     <div class="mt-0 pt-0 d-flex gap-3 ml-3">
       <%= link_to 'Reply', new_comment_comment_path(comment.id),

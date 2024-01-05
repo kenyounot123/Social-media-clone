@@ -1,41 +1,39 @@
 <%= link_to "Back", :back, class: 'fs-1 link-dark'%>
-<div class="text-center d-grid">
+<div class="d-grid container-fluid">
   <div class="row">
-    <div class="col">
+    <div class="col-2">
       <%= render "profile_pic", user: @user, size: [50,50] %>
       <%= render "change_avatar_form", user: @user %>
-    </div>
-    <div class="col">
       <h5 class="mt-0"><%= @user.name %></h5>
       <p><%= @user.email %></p>
+      <div>
+        <%= @user.followings.count %>
+        <%= link_to "Following", following_user_path(@user), class: "link-dark" %> 
+        
+        <%= @user.followers.count %>
+        <%= link_to "Followers", followers_user_path(@user), class: "link-dark" %>
+      </div>
+      <div>
+        <% if current_user != @user && !current_user.following?(@user) %>
+          <%= render 'follow_form', relationship: current_user.active_relationships.build,
+                                    user: @user %>
+        <% elsif current_user.following?(@user) %>
+          <%= render 'unfollow_form', 
+                      relationship: current_user.active_relationships.find_by(followed_id: @user.id) %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <%= @user.followings.count %>
-      <%= link_to "Following", following_user_path(@user), class: "link-dark" %> 
-      
-      <%= @user.followers.count %>
-      <%= link_to "Followers", followers_user_path(@user), class: "link-dark" %>
-    </div>
-    <div class="col">
-      <% if current_user != @user && !current_user.following?(@user) %>
-        <%= render 'follow_form', relationship: current_user.active_relationships.build,
-                                  user: @user %>
-      <% elsif current_user.following?(@user) %>
-        <%= render 'unfollow_form', 
-                    relationship: current_user.active_relationships.find_by(followed_id: @user.id) %>
+    <div class='col-10'>
+      <h1 class='text-center'>All of <%= @user.name %>'s recent posts</h1>
+      <% @posts.each do |post| %>
+        <%= render post, path: post_path(post)  %>
+        <%= turbo_frame_tag "comments_for_#{post.id}" do %>
+          <% post.comments.each do |comment| %>
+            <%= render comment, slice: @comment_slice %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>
 </div>
-<h1 class='text-center'>All of <%= @user.name %>'s recent posts</h1>
-<% @posts.each do |post| %>
-  <%= render post, path: post_path(post)  %>
-  <%= turbo_frame_tag "comments_for_#{post.id}" do %>
-    <% post.comments.each do |comment| %>
-      <%= render comment, slice: @comment_slice %>
-    <% end %>
-  <% end %>
-<% end %>
 <%= render partial: "shared/pagination", locals: { pagy: @pagy } %>

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :find_commentable, only: [:create, :new]
+  before_action :find_commentable, only: [:create, :new, :update]
 
   #For reply form
   def new
@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    @post = Post.find(@comment.commentable_id)
+    @post = @commentable
     if @comment.update(comment_params)
       redirect_to @post, notice: "Comment updated"
     else

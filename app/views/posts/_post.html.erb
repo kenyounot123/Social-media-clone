@@ -1,5 +1,5 @@
 <%= turbo_frame_tag post do %>
-  <div class="card w-25 container-xl mt-3 border-dark border-2">
+  <div class="card w-50 container-fluid mt-3 border-dark border-2">
 
     <div class="card-header">
       <%= render "users/profile_pic", user: post.user, size: [30,30] %>
@@ -16,6 +16,15 @@
       </div>
       <div>
         <%= post.body %>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <% if post.image.attached? %>
+              <%= image_tag post.image.variant(resize_to_fill: [300, nil]), class: "img-fluid" %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
     
