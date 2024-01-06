@@ -13,15 +13,7 @@
         <%= @user.followers.count %>
         <%= link_to "Followers", followers_user_path(@user), class: "link-dark" %>
       </div>
-      <div>
-        <% if current_user != @user && !current_user.following?(@user) %>
-          <%= render 'follow_form', relationship: current_user.active_relationships.build,
-                                    user: @user %>
-        <% elsif current_user.following?(@user) %>
-          <%= render 'unfollow_form', 
-                      relationship: current_user.active_relationships.find_by(followed_id: @user.id) %>
-        <% end %>
-      </div>
+      <%= render 'follow_button', user: @user %>
     </div>
     <div class='col-10'>
       <h1 class='text-center'>All of <%= @user.name %>'s recent posts</h1>

@@ -1,15 +1,22 @@
 <div class="card w-50 container-xl mt-1">
-  <div class="card-body">
-    <div class="col">
-      <%= render "profile_pic", user: user, size: [50,50] %>
-      <%= link_to "#{user.name}", user_path(user), class: "text-nowrap" %>
-    </div>
-    <div class="col">
-      <%= user.followings.count %>
-      <%= link_to "Following", following_user_path(user), class: "w-75 text-nowrap" %> 
+  <div class="card-body d-grid">
+    <div class="row">
+      <div class="col">
+        <%= render "profile_pic", user: user, size: [50,50] %>
+        <%= link_to "#{user.name}", user_path(user), class: "text-nowrap" %>
 
-      <%= user.followers.count %>
-      <%= link_to "Followers", followers_user_path(user), class: "text-nowrap" %>
+        <div class="col">
+          <%= user.followings.count %>
+          <%= link_to "Following", following_user_path(user), class: "w-75 text-nowrap" %> 
+
+          <%= user.followers.count %>
+          <%= link_to "Followers", followers_user_path(user), class: "text-nowrap" %>
+        </div>
+      </div>
+      
+      <div class="col text-end mt-3">
+        <%= render "follow_button", user: user %>
+      </div>
     </div>
   </div>
 </div>

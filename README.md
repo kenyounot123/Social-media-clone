@@ -24,6 +24,6 @@ I used Rails' Action Mailer for sending out welcome emails after a user has newl
 ![image](https://github.com/kenyounot123/Social-media-clone/assets/70028795/81e5c1cc-550d-41ff-9188-f4649f279a71)
 ## Future edits:
 Make dark mode feature
+Action Cable for real time functionalties
 Make search feature
-
 ## Lessons Learned:
