@@ -21,12 +21,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'relationships' do 
-    before(:each) do
-      User.skip_callback(:create, :after, :send_welcome_email)
-    end
-    after(:each) do
-      User.set_callback(:create, :after, :send_welcome_email)
-    end
+    include_context 'skip welcome email'
     let(:user) { create(:user) }
     let(:other_user) { create(:user, id: 2, name: 'michael', email: 'michael@example.com', password: 'password' ) }
     describe '#follow' do
