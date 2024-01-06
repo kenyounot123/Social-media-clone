@@ -1,12 +1,9 @@
-# Social Media Clone
+# Stellar (Social media clone)
 Created a full-stack social media site consisting of the core user functionalities of any social media apps such as Facebook, Twitter, threads, etc.
 Users must sign in to access the site and can even sign in through Github. Once signed in, a confirmation email will be sent to the user. Users can create posts (using texts and images), like posts, comment on posts, as well as follow and unfollow other users. 
-Some of its major functions are shown below.
-![social_media_clone](https://github.com/kenyounot123/Social-media-clone/assets/70028795/768df57a-f134-4565-bba4-d7a5120a88ad)
+Screenshots of website shown below.
 **Link to project:** none.com/
-
 ![alt tag](http://placecorgi.com/1200/650)
-
 ## How It's Made:
 
 **Tech used:** HTML, CSS, JavaScript, Bootstrap, Ruby on Rails, Ruby, Hotwire
@@ -21,7 +18,10 @@ Functions like `Likes`, `Replies`, `Comments`, and `Follows` involved complex as
 
 I used Rails' Action Mailer for sending out welcome emails after a user has newly created their account and signed in. I also used Action Storage to store images in a local disk for `Posts` image uploading and `User` avatars.
 ## Screenshots
-
+![image](https://github.com/kenyounot123/Social-media-clone/assets/70028795/42b331ac-c7b8-4f67-9099-241a1cb35c54)
+![image](https://github.com/kenyounot123/Social-media-clone/assets/70028795/c6f295de-2284-4d98-835a-1355e9b95fcf)
+![image](https://github.com/kenyounot123/Social-media-clone/assets/70028795/0e7fbe08-63ae-4f98-a9b8-fb4452a9e672)
+![image](https://github.com/kenyounot123/Social-media-clone/assets/70028795/81e5c1cc-550d-41ff-9188-f4649f279a71)
 ## Future edits:
 Make dark mode feature
 Make search feature
