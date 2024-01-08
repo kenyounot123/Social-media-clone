@@ -4,3 +4,4 @@ import "./controllers/hello_controller.js"
 import "./controllers"
 
 import * as bootstrap from "bootstrap"
+import "./channels"
