@@ -8,7 +8,10 @@ RSpec.describe 'Users', type: :system do
     end
   end
   context 'when signing up' do 
-    
+    it 'stays on same screen because of turbo frames' do 
+    end
+    it 'redirects to use name page with successful sign up' do 
+    end
   end
 
 end
