@@ -85,3 +85,5 @@ gem "omniauth-rails_csrf_protection"
 gem "gravtastic"
 #Pagination
 gem "pagy"
+
+gem "dockerfile-rails", ">= 1.6", :group => :development

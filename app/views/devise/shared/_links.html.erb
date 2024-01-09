@@ -5,7 +5,10 @@
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <%= link_to "Sign up", new_registration_path(resource_name),
-                        class: "btn btn-secondary btn-sm" %><br />
+                        class: "btn btn-secondary btn-sm",
+                        data: {
+                          turbo_frame: 'login_form'
+                        } %><br />
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>

@@ -2,7 +2,7 @@
 Created a full-stack social media site consisting of the core user functionalities of any social media apps such as Facebook, Twitter, threads, etc.
 Users must sign in to access the site and can even sign in through Github. Once signed in, a confirmation email will be sent to the user. Users can create posts (using texts and images), like posts, comment on posts, as well as follow and unfollow other users. 
 Screenshots of website shown below.
-**Link to project:** none.com/
+**Link to project:** [Stellar](https://stellar.fly.dev)
 ![alt tag](http://placecorgi.com/1200/650)
 ## How It's Made:
 
@@ -17,6 +17,8 @@ I first started working on the Post functionality. So users can create posts, co
 Functions like `Likes`, `Replies`, `Comments`, and `Follows` involved complex associations and polymorphic associations. For instance, to implement users being able to like many posts and follow other users, I needed to create two separate models with `has_one_through_many` associations with the user. For following and follower relationships being able to be one sided, I created active relationships and passive relationships to capture each scenario. I made sure these models worked properly and had the right associations by writing model tests using RSpec.
 
 I used Rails' Action Mailer for sending out welcome emails after a user has newly created their account and signed in. I also used Action Storage to store images in a local disk for `Posts` image uploading and `User` avatars.
+
+Deployed using Fly.io
 ## Screenshots
 ![image](https://github.com/kenyounot123/Social-media-clone/assets/70028795/42b331ac-c7b8-4f67-9099-241a1cb35c54)
 ![image](https://github.com/kenyounot123/Social-media-clone/assets/70028795/c6f295de-2284-4d98-835a-1355e9b95fcf)
