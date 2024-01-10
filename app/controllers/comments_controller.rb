@@ -50,8 +50,9 @@ class CommentsController < ApplicationController
         }
       end
     else
-      flash[:alert] = 'Something went wrong when trying to comment'
-      render :new, status: :unprocessable_entity
+      flash[:alert] = 'Comment can not be empty'
+      #Redirect back to previous page where request originated or dashboard path if not available
+      redirect_to request.referer || dashboard_path, status: :unprocessable_entity
     end
   end
 
@@ -70,7 +71,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :comment_id, :commentable_id)
   end
 
   def find_commentable

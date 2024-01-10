@@ -4,7 +4,7 @@ RSpec.describe 'Posts', type: :system do
   include Devise::Test::IntegrationHelpers
   include_context 'skip welcome email'
   let(:user) { create(:user) }
-  let(:post) { create(:post, user: user)}
+  let(:post) { create(:post, user: user) }
   before do 
     sign_in user
   end
