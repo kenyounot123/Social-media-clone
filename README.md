@@ -1,8 +1,8 @@
 # Stellar (Social media clone)
 Created a full-stack social media site consisting of the core user functionalities of any social media apps such as Facebook, Twitter, threads, etc.
 Users must sign in to access the site and can even sign in through Github. Once signed in, a confirmation email will be sent to the user. Users can create posts (using texts and images), like posts, comment on posts, as well as follow and unfollow other users. 
-Screenshots of website shown below.
-**Link to project:** [Stellar](https://stellar.fly.dev)
+Screenshots of website shown below.</br>
+**Link to project:** [Stellar](https://stellar.fly.dev) </br>
 ![alt tag](http://placecorgi.com/1200/650)
 ## How It's Made:
 
@@ -25,7 +25,7 @@ Deployed using Fly.io
 ![image](https://github.com/kenyounot123/Social-media-clone/assets/70028795/0e7fbe08-63ae-4f98-a9b8-fb4452a9e672)
 ![image](https://github.com/kenyounot123/Social-media-clone/assets/70028795/81e5c1cc-550d-41ff-9188-f4649f279a71)
 ## Future edits:
-Make dark mode feature
-Action Cable for real time functionalties
-Make search feature
+* Make dark mode feature
+* Action Cable for real time functionalties
+* Make search feature
 ## Lessons Learned:
