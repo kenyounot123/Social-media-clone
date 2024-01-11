@@ -3,7 +3,6 @@ Created a full-stack social media site consisting of the core user functionaliti
 Users must sign in to access the site and can even sign in through Github. Once signed in, a confirmation email will be sent to the user. Users can create posts (using texts and images), like posts, comment on posts, as well as follow and unfollow other users. 
 Screenshots of website shown below.</br>
 **Link to project:** [Stellar](https://stellar.fly.dev) </br>
-![alt tag](http://placecorgi.com/1200/650)
 ## How It's Made:
 
 **Tech used:** HTML, CSS, JavaScript, Bootstrap, Ruby on Rails, Ruby, Hotwire

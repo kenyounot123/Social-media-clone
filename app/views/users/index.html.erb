@@ -1,3 +1,4 @@
 <div class='container'>
   <%= render partial: "follow_list", collection: @users, as: :user %>
+  <%= render partial: "shared/pagination", locals: { pagy: @pagy } %>
 </div>
